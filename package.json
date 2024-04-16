@@ -1,0 +1,31 @@
+{
+   "name": "qp-assessment",
+   "version": "1.0.0",
+   "description": "Grocery Booking API",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node-esm src/index.ts",
+      "typeorm": "typeorm-ts-node-esm"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sandesh1712/qp-assessment.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/sandesh1712/qp-assessment/issues"
+   },
+   "homepage": "https://github.com/sandesh1712/qp-assessment#readme",
+   "devDependencies": {
+      "ts-node": "10.9.1",
+      "@types/node": "^16.11.10",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "typeorm": "0.3.20",
+      "reflect-metadata": "^0.1.13",
+      "pg": "^8.4.0"
+   }
+}
