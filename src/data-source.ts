@@ -9,8 +9,8 @@ const db = {
   name: process.env.DATABASE_NAME,
 };
 
-export const AppDataSource = new DataSource({
-  type: "postgres",
+const AppDataSource = new DataSource({
+  type: "mysql",
   host: db.host,
   port: parseInt(db.port,10),
   username: db.user,
@@ -18,7 +18,16 @@ export const AppDataSource = new DataSource({
   database: db.name,
   synchronize: true,
   logging: false,
-  entities: ["./src/entity/*.{ts,js}"],
+  entities: ["./src/entity/*.ts"],
   migrations: [],
   subscribers: [],
 });
+
+AppDataSource.initialize().then( async()=>{
+  console.log("Connection established with DB");
+}).catch(err=>{
+    console.log(err.message);
+})
+
+export default AppDataSource;
+
