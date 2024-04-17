@@ -1,12 +1,12 @@
 import { Repository } from "typeorm";
 import { Product } from "../entity/Product";
-import { productRepository } from "../repository/productRepository";
+import AppDataSource from "../data-source";
 
 export default class ProductService {
    productRepository: Repository<Product>;
 
    constructor(){
-     this.productRepository = productRepository;
+     this.productRepository = AppDataSource.getRepository(Product);
    }
 
    async getOneById(id:string){

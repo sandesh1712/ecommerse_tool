@@ -1,6 +1,3 @@
-import { Repository } from "typeorm";
-import { productRepository } from "../repository/productRepository";
-import { Product } from "../entity/Product";
 import { Request, Response } from "express";
 import ProductService from "../services/product";
 
