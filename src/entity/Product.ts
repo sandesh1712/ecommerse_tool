@@ -1,11 +1,10 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { ProductImages } from "./ProductImages";
+import SuperEntity from "./SuperEntity";
+import { BasketItem } from "./BasketItem";
 
 @Entity()
-export class Product {
-
-    @PrimaryGeneratedColumn()
-    id: number;
+export class Product extends SuperEntity {
 
     @Column({unique:true,nullable:false})
     name: string;
@@ -24,4 +23,7 @@ export class Product {
 
     @Column({nullable:false})
     unit: string;
+
+    @OneToMany(()=>BasketItem,basketItem=>basketItem.product)
+    basketItems:BasketItem[];
 }
