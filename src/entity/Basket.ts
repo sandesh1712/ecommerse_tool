@@ -8,7 +8,7 @@ import { Order } from "./Order";
 @Entity()
 export class Basket extends SuperEntity {
 
-    @Column({type:'float'})
+    @Column({type:'float',nullable:false,default:0})
     basketTotal:number;
 
     @Column({type:'enum',enum:BasketStatus,default:BasketStatus.ACTIVE})
@@ -18,10 +18,10 @@ export class Basket extends SuperEntity {
     @JoinTable()
     user:User
 
-    @OneToMany(()=>BasketItem,(basketItem)=>basketItem.basket)
+    @OneToMany(()=>BasketItem,(basketItem)=>basketItem.basket,{cascade:["insert","update","remove"],eager:true})
     @JoinTable()
-    basketItems:Basket
+    basketItems:BasketItem[]
 
-    @OneToOne(()=>Order,order=>order.basket,{nullable:true})
+    @OneToOne(()=>Order,order=>order.basket,{nullable:true,lazy:true})
     order: Order
 }

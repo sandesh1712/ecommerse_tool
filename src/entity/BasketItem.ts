@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToOne } from "typeorm";
+import { Column, Entity, ManyToOne } from "typeorm";
 import SuperEntity from "./SuperEntity";
 import { Product } from "./Product";
 import { Basket } from "./Basket";
