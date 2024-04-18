@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Index, Repository } from "typeorm";
 import { Basket } from "../entity/Basket";
 import { BasketItem } from "../entity/BasketItem";
 
@@ -23,6 +23,15 @@ export class BasketService {
         basket.basketItems.push(basketItem);
         basket.basketTotal += basketItem.total;
         return this.basketRepository.save(basket);
+    }
+
+    async updateBasketItem(basketId,basketItemId,basketItem:BasketItem){
+           const basket = await this.getOneBasketById(basketId);
+           const index = basket.basketItems.findIndex(item => item.id == basketItemId);
+           basket.basketTotal -= basket.basketItems[index].total;
+           basket.basketItems[index] = {...basket.basketItems[index],...basketItem}
+           basket.basketTotal += basketItem.total;
+           return await this.basketRepository.save(basket);
     }
 
     async removeFromBasket(basketId,basketItemId){

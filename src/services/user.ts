@@ -35,4 +35,9 @@ export default class UserService {
   async findUserById(userId) {
     return await this.userRepository.findOneBy({ id: parseInt(userId) });
   }
+
+  async getOrders(userId){
+    const user = await this.findUserById(userId);
+    return user.orders;
+  }
 }

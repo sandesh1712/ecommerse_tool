@@ -28,11 +28,11 @@ export class User extends SuperEntity{
     @Column({type:"varchar",length:100,nullable:false})
     password:string
 
-    @OneToMany(()=>Order,(order)=>order.user)
+    @OneToMany(()=>Order,(order)=>order.user,{lazy:true})
     @JoinTable()
     orders:Order[];
 
-    @OneToMany(()=>Basket,(basket)=>basket.user,{cascade:["insert", "update","remove" ]})  // despite many to many but we will only have one active basket at a time
+    @OneToMany(()=>Basket,(basket)=>basket.user,{cascade:["insert", "update","remove" ],lazy:true})  // despite many to many but we will only have one active basket at a time
     basket:Basket[];
 
     toJSON(){

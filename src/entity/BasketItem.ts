@@ -11,7 +11,7 @@ export class BasketItem extends SuperEntity{
     @Column({type: 'int'})
     quantity: number
 
-    @ManyToOne(()=>Product,(product)=>product.basketItems,{eager:true})
+    @ManyToOne(()=>Product,(product)=>product.basketItems,{eager:true,cascade:["update"]})
     product: Product
 
     @ManyToOne(()=>Basket,(basket)=>basket.basketItems)

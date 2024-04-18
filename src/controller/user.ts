@@ -27,4 +27,14 @@ export default class UserController{
             res.status(500).send(err.message)
          }
     }
+
+    async getAllOrders(req:Request,res:Response){
+        const {id} = req.params;
+        try{
+            const orders = await this.userService.getOrders(id);
+            res.status(200).send(orders);
+        }catch(err){
+            res.status(500).send(err.message)
+         }
+    }
 }
