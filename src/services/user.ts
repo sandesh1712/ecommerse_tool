@@ -36,6 +36,10 @@ export default class UserService {
     return await this.userRepository.findOneBy({ id: parseInt(userId) });
   }
 
+  async findUserByEmail(email) {
+    return await this.userRepository.findOneBy({ email });
+  }
+
   async getOrders(userId){
     const user = await this.findUserById(userId);
     return user.orders;
