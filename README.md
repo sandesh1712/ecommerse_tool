@@ -1,4 +1,4 @@
-# qp-assessment
+# Ecommerce Tool
 
 # Prequsite
  1. Create a .env file in src directory
