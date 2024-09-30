@@ -10,4 +10,4 @@
 
 # Docker Build :
  1. to build docker image you have to pass environment vaiable as build arguments like HOST ,PORT ,etc as we have in .env file
- 2. run ```docker build --build-arg HOST=${value} --build-arg PORT=${value} --build-arg DATABASE_HOST=${value} --build-arg DATABASE_PORT=${value} --build-arg DATABASE_USER=${value} --build-arg DATABASE_PASSWORD=${value} --build-arg DATABASE_NAME=${value} --build-arg JWT_SECRET=${value} -t qp_assessment  ./``` in directory where dockerfile is located
+ 2. run ```docker build --build-arg HOST=${value} --build-arg PORT=${value} --build-arg DATABASE_HOST=${value} --build-arg DATABASE_PORT=${value} --build-arg DATABASE_USER=${value} --build-arg DATABASE_PASSWORD=${value} --build-arg DATABASE_NAME=${value} --build-arg JWT_SECRET=${value} -t ecommerce_tool ./``` in directory where dockerfile is located
